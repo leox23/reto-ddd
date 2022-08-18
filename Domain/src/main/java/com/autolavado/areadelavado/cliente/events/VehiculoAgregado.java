@@ -1,16 +1,17 @@
-package com.autolavado.areadelavado.cliente.commands;
+package com.autolavado.areadelavado.cliente.events;
 
-import co.com.sofka.domain.generic.Command;
+import co.com.sofka.domain.generic.DomainEvent;
 import com.autolavado.areadelavado.cliente.values.Color;
 import com.autolavado.areadelavado.cliente.values.TipoDeVehiculo;
 import com.autolavado.areadelavado.cliente.values.VehiculoId;
 
-public class AgregarVehiculo extends Command {
+public class VehiculoAgregado extends DomainEvent {
     private final VehiculoId vehiculoId;
     private final TipoDeVehiculo tipoDeVehiculo;
     private final Color color;
 
-    public AgregarVehiculo(VehiculoId vehiculoId, TipoDeVehiculo tipoDeVehiculo, Color color) {
+    public VehiculoAgregado(VehiculoId vehiculoId, TipoDeVehiculo tipoDeVehiculo, Color color) {
+        super("com.autolavado.areadelavado.VehiculoAgregado");
         this.vehiculoId = vehiculoId;
         this.tipoDeVehiculo = tipoDeVehiculo;
         this.color = color;
