@@ -29,7 +29,7 @@ public class Cliente extends AggregateEvent<ClienteId> {
         appendChange(new ClienteCreado(clienteId, datosPersonales, bono)).apply();
     }
 
-    private Cliente(ClienteId clienteId) {
+    public Cliente(ClienteId clienteId) {
         super(clienteId);
         subscribe(new ClienteChange(this));
     }
@@ -41,7 +41,7 @@ public class Cliente extends AggregateEvent<ClienteId> {
     }
 
     // Comportamientos
-    public Optional<Cliente> actualizarDatosCliente(ClienteId clienteId, Nombre nombre, Celular celular){
+    public void actualizarDatosCliente(ClienteId clienteId, Nombre nombre, Celular celular){
         Objects.requireNonNull(clienteId);
         Objects.requireNonNull(nombre);
         Objects.requireNonNull(celular);
@@ -55,7 +55,6 @@ public class Cliente extends AggregateEvent<ClienteId> {
         appendChange(new VehiculoAgregado(vehiculoId, tipoDeVehiculo, color));
     }
 
-    // todo por validad si este comportamiento es el mismo de la linea 36
     public void CrearCliente(ClienteId clienteId, DatosPersonales datosPersonales, Vehiculo vehiculo) {
         Objects.requireNonNull(clienteId);
         Objects.requireNonNull(datosPersonales);

@@ -7,8 +7,6 @@ import com.autolavado.areadelavado.cliente.values.Celular;
 import com.autolavado.areadelavado.cliente.values.Nombre;
 
 public class AsignarDatosDelCliente extends Command {
-    //todo ver como seria la relacion aca por asuntos de que a lo mejor debe ir relacionado con el agregado cliente
-    /// siiiiiiiiiiiiiiiiiiii
     private final ClienteId clienteId;
     private final Nombre nombre;
     private final Celular celular;

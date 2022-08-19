@@ -1,25 +1,32 @@
 package com.autolavado.areadelavado.lavador.entities;
 
 import co.com.sofka.domain.generic.Entity;
-import com.autolavado.areadelavado.lavador.values.Celular;
+import com.autolavado.areadelavado.lavador.values.CelularLavador;
 import com.autolavado.areadelavado.lavador.values.LavadorId;
-import com.autolavado.areadelavado.lavador.values.Nombre;
+import com.autolavado.areadelavado.lavador.values.NombreLavador;
+
+import java.util.Objects;
 
 public class DatosPersonales extends Entity<LavadorId> {
-    private Nombre nombre;
-    private Celular celular;
+    private NombreLavador nombre;
+    private CelularLavador celular;
 
-    public DatosPersonales(LavadorId lavadorId, Nombre nombre, Celular celular) {
+    public DatosPersonales(LavadorId lavadorId, NombreLavador nombre, CelularLavador celular) {
         super(lavadorId);
         this.nombre = nombre;
         this.celular = celular;
     }
 
-    public Nombre getNombre() {
+    public NombreLavador getNombreLavador() {
         return nombre;
     }
 
-    public Celular getCelular() {
+    public CelularLavador getCelularLavador() {
         return celular;
+    }
+
+    public void actualizarDatosLavador(NombreLavador nombre, CelularLavador celular) {
+        this.nombre = Objects.requireNonNull(nombre);
+        this.celular = Objects.requireNonNull(celular);
     }
 }
