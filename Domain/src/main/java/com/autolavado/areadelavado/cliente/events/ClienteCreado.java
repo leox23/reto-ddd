@@ -10,7 +10,6 @@ public class ClienteCreado extends DomainEvent {
     private final DatosPersonales datosPersonales;
     private final Vehiculo vehiculo;
 
-    // todo no estoy seguro si en realidad este commando debe llevar el ID, el ejemplo es confuso
     public ClienteCreado(ClienteId clienteId, DatosPersonales datosPersonales, Vehiculo vehiculo) {
         super("com.autolavado.areadelavado.ClienteCreado");
         this.clienteId = clienteId;

@@ -13,6 +13,7 @@ public class CrearFactura extends Command {
     private final FacturaId facturaId;
     //todo preguntar por procedencia de este CLienteID si de aca o de ambas
     private final ClienteId clienteId;
+    // usar los de el root CLiente
     private final AtencionClienteId atencionClienteId;
     private final Set<Servicio> servicio;
     private final Set<DatosDeCliente> datosDeClientes;

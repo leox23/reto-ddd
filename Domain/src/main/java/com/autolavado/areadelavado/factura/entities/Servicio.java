@@ -6,7 +6,7 @@ import com.autolavado.areadelavado.factura.values.HoraDeEntrega;
 import com.autolavado.areadelavado.factura.values.TipoDeServicioId;
 
 public class Servicio extends Entity<TipoDeServicioId> {
-    // todo verificar procedencia, si necesita link con AR cliente
+
     private TipoDeServicioId tipoDeServicioId;
     private DiaDeEntrega diaDeEntrega;
     private HoraDeEntrega horaDeEntrega;

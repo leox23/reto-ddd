@@ -18,6 +18,7 @@ public class DatosClienteActualizados extends DomainEvent {
         this.celular = celular;
     }
 
+
     public ClienteId getClienteId() {
         return clienteId;
     }

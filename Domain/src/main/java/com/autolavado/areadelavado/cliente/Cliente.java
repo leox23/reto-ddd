@@ -41,7 +41,7 @@ public class Cliente extends AggregateEvent<ClienteId> {
     }
 
     // Comportamientos
-    public void actualizarDatosCliente(ClienteId clienteId, Nombre nombre, Celular celular){
+    public Optional<Cliente> actualizarDatosCliente(ClienteId clienteId, Nombre nombre, Celular celular){
         Objects.requireNonNull(clienteId);
         Objects.requireNonNull(nombre);
         Objects.requireNonNull(celular);
@@ -71,7 +71,7 @@ public class Cliente extends AggregateEvent<ClienteId> {
                 .findFirst();
     }
 
-    protected Optional<Vehiculo> getContactoPorId(VehiculoId vehiculoId){
+    protected Optional<Vehiculo> getVehiculoPorId(VehiculoId vehiculoId){
         return vehiculo
                 .stream()
                 .filter(vehiculo -> vehiculo.identity().equals(vehiculoId))
