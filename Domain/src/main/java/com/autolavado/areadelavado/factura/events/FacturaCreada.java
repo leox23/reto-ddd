@@ -1,47 +1,39 @@
 package com.autolavado.areadelavado.factura.events;
 
 import co.com.sofka.domain.generic.DomainEvent;
-import com.autolavado.areadelavado.cliente.values.ClienteId;
-import com.autolavado.areadelavado.factura.entities.DatosDeCliente;
+import com.autolavado.areadelavado.factura.entities.MetodoDePago;
 import com.autolavado.areadelavado.factura.entities.Servicio;
-import com.autolavado.areadelavado.factura.values.AtencionClienteId;
 import com.autolavado.areadelavado.factura.values.FacturaId;
+import com.autolavado.areadelavado.factura.values.Precio;
 
 
 public class FacturaCreada extends DomainEvent {
-    private final FacturaId facturaId;
-    //todo preguntar por procedencia de este CLienteID si de aca o de ambas
-    private final ClienteId clienteId;
-    private final AtencionClienteId atencionClienteId;
-    private final Servicio servicio;
-    private final DatosDeCliente datosDeClientes;
 
-    public FacturaCreada(FacturaId facturaId, ClienteId clienteId, AtencionClienteId atencionClienteId, Servicio servicio, DatosDeCliente datosDeClientes) {
+    private final FacturaId facturaId;
+    private final Precio precio;
+    private final Servicio servicio;
+    private final MetodoDePago metodoDePago;
+
+    public FacturaCreada(FacturaId facturaId, Precio precio, Servicio servicio, MetodoDePago datosDeClientes) {
         super("com.autolavado.areadelavado.FacturaCreada");
         this.facturaId = facturaId;
-        this.clienteId = clienteId;
-        this.atencionClienteId = atencionClienteId;
+        this.precio = precio;
         this.servicio = servicio;
-        this.datosDeClientes = datosDeClientes;
+        this.metodoDePago = datosDeClientes;
     }
 
     public FacturaId getFacturaId() {
         return facturaId;
     }
 
-    public ClienteId getClienteId() {
-        return clienteId;
-    }
-
-    public AtencionClienteId getAtencionClienteId() {
-        return atencionClienteId;
-    }
+    public Precio getPrecio() { return precio; }
 
     public Servicio getServicio() {
         return servicio;
     }
 
-    public DatosDeCliente getDatosDeClientes() {
-        return datosDeClientes;
+    public MetodoDePago getMetodoDePago() {
+        return metodoDePago;
     }
+
 }

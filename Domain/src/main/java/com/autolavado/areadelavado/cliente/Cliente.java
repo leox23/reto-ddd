@@ -41,22 +41,22 @@ public class Cliente extends AggregateEvent<ClienteId> {
     }
 
     // Comportamientos
-    public void actualizarDatosCliente(ClienteId clienteId, Nombre nombre, Celular celular){
-        Objects.requireNonNull(clienteId);
+    public void actualizarDatosCliente(Nombre nombre, Celular celular){
+        var clienteId = new ClienteId();
         Objects.requireNonNull(nombre);
         Objects.requireNonNull(celular);
         appendChange(new DatosClienteActualizados(clienteId, nombre, celular));
     }
 
-    public void agregarVehiculo(VehiculoId vehiculoId, TipoDeVehiculo tipoDeVehiculo, Color color){
-        Objects.requireNonNull(vehiculoId);
+    public void agregarVehiculo(TipoDeVehiculo tipoDeVehiculo, Color color){
+        var vehiculoId = new VehiculoId();
         Objects.requireNonNull(tipoDeVehiculo);
         Objects.requireNonNull(color);
         appendChange(new VehiculoAgregado(vehiculoId, tipoDeVehiculo, color));
     }
 
-    public void CrearCliente(ClienteId clienteId, DatosPersonales datosPersonales, Vehiculo vehiculo) {
-        Objects.requireNonNull(clienteId);
+    public void CrearCliente(DatosPersonales datosPersonales, Vehiculo vehiculo) {
+        var clienteId = new ClienteId();
         Objects.requireNonNull(datosPersonales);
         Objects.requireNonNull(vehiculo);
         appendChange(new ClienteCreado(clienteId, datosPersonales, vehiculo));

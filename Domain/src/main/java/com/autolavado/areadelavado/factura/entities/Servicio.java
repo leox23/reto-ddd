@@ -18,6 +18,10 @@ public class Servicio extends Entity<TipoDeServicioId> {
         this.horaDeEntrega = horaDeEntrega;
     }
 
+    public void agregarTipoDeLavado(TipoDeServicioId tipoDeServicioId){
+        this.tipoDeServicioId = tipoDeServicioId;
+    }
+
     public TipoDeServicioId getTipoDeServicioId() {
         return tipoDeServicioId;
     }

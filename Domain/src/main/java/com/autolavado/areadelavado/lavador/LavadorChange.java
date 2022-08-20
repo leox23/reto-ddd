@@ -18,7 +18,7 @@ public class LavadorChange extends EventChange {
             lavador.vehiculosAsignados.add( new VehiculosAsignados(event.getVehiculoId(), event.getVehiculosLavados(), event.getVehiculosRecibidos()));
         });
         apply((DatosDelClienteAsignados event) ->{
-           lavador.asignarDatosDelCliente(new ClienteId(event.getClienteId()));
+           lavador.asignarDatosDelCliente();
         });
         apply((DatosPersonalesActualizados event) ->{
             var actualizar = lavador.getLavadorPorId(event.getLavadorId())

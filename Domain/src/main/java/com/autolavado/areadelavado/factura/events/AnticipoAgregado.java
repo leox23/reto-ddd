@@ -2,21 +2,21 @@ package com.autolavado.areadelavado.factura.events;
 
 import co.com.sofka.domain.generic.DomainEvent;
 import com.autolavado.areadelavado.factura.values.Anticipo;
-import com.autolavado.areadelavado.factura.values.MetodoDePago;
+import com.autolavado.areadelavado.factura.values.Tipo;
 
 public class AnticipoAgregado extends DomainEvent {
 
-    private final MetodoDePago metodoDePago;
+    private final Tipo tipo;
     private final Anticipo anticipo;
 
-    public AnticipoAgregado(MetodoDePago metodoDePago, Anticipo anticipo) {
+    public AnticipoAgregado(Tipo tipo, Anticipo anticipo) {
         super("com.autolavado.areadelavado.AnticipoAgregado");
-        this.metodoDePago = metodoDePago;
+        this.tipo = tipo;
         this.anticipo = anticipo;
     }
 
-    public MetodoDePago getMetodoDePago() {
-        return metodoDePago;
+    public Tipo getTipo() {
+        return tipo;
     }
 
     public Anticipo getAnticipo() {
