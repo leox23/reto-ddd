@@ -7,20 +7,22 @@ import com.autolavado.areadelavado.lavador.values.NombreLavador;
 
 public class ActualizarDatosLavador extends Command {
     private final LavadorId lavadorId;
-    private final NombreLavador nombre;
-    private final CelularLavador celular;
+    private final NombreLavador nombreLavador;
+    private final CelularLavador celularLavador;
 
-    public ActualizarDatosLavador(LavadorId lavadorId, NombreLavador nombre, CelularLavador celular) {
+    public ActualizarDatosLavador(LavadorId lavadorId, NombreLavador nombreLavador, CelularLavador celularLavador) {
         this.lavadorId = lavadorId;
-        this.nombre = nombre;
-        this.celular = celular;
+        this.nombreLavador = nombreLavador;
+        this.celularLavador = celularLavador;
     }
 
     public LavadorId getLavadorId() {
         return lavadorId;
     }
 
-    public NombreLavador getNombre() {
-        return nombre;
+    public NombreLavador getNombreLavador() {
+        return nombreLavador;
     }
+
+    public CelularLavador getCelularLavador() { return celularLavador; }
 }

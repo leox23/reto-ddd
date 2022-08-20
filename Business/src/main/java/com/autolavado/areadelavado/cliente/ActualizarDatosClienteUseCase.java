@@ -14,5 +14,7 @@ public class ActualizarDatosClienteUseCase extends UseCase<RequestCommand<Actual
                 repository().getEventsBy(command.getClienteId().value())
         );
         cliente.actualizarDatosCliente(command.getNombre(), command.getCelular());
+
+        emit().onResponse(new ResponseEvents(cliente.getUncommittedChanges()));
     }
 }

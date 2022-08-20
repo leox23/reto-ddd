@@ -13,5 +13,7 @@ public class CrearClienteUseCase extends UseCase<RequestCommand<CrearCliente>, R
                 repository().getEventsBy(command.getClienteId().value())
         );
         cliente.crearCliente(command.getDatosPersonales(), command.getVehiculo());
+
+        emit().onResponse(new ResponseEvents(cliente.getUncommittedChanges()));
     }
 }

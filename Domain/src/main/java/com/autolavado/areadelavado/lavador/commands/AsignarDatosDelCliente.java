@@ -1,22 +1,27 @@
 package com.autolavado.areadelavado.lavador.commands;
 
 import co.com.sofka.domain.generic.Command;
-import com.autolavado.areadelavado.cliente.values.ClienteId;
-import com.autolavado.areadelavado.cliente.values.Celular;
-import com.autolavado.areadelavado.cliente.values.Nombre;
+import com.autolavado.areadelavado.lavador.values.Celular;
+import com.autolavado.areadelavado.lavador.values.ClienteId;
+import com.autolavado.areadelavado.lavador.values.LavadorId;
+import com.autolavado.areadelavado.lavador.values.Nombre;
 
 public class AsignarDatosDelCliente extends Command {
+    private final LavadorId lavadorId;
     private final ClienteId clienteId;
     private final Nombre nombre;
     private final Celular celular;
 
-    public AsignarDatosDelCliente(ClienteId lavadorId, Nombre nombre, Celular celular) {
-        this.clienteId = lavadorId;
+    public AsignarDatosDelCliente(LavadorId lavadorId, ClienteId clienteId, Nombre nombre, Celular celular) {
+        this.lavadorId = lavadorId;
+        this.clienteId = clienteId;
         this.nombre = nombre;
         this.celular = celular;
     }
 
-    public ClienteId getLavadorId() {
+    public LavadorId getLavadorId() { return lavadorId; }
+
+    public ClienteId getClienteId() {
         return clienteId;
     }
 
@@ -27,4 +32,5 @@ public class AsignarDatosDelCliente extends Command {
     public Celular getCelular() {
         return celular;
     }
+
 }

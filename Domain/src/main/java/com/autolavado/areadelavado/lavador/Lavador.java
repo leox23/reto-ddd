@@ -16,7 +16,6 @@ import com.autolavado.areadelavado.lavador.values.NombreLavador;
 import com.autolavado.areadelavado.lavador.values.VehiculosLavados;
 import com.autolavado.areadelavado.lavador.values.VehiculosRecibidos;
 
-import java.io.ObjectInputStream;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -50,22 +49,21 @@ public class Lavador extends AggregateEvent<LavadorId> {
         appendChange(new LavadorCreado(lavadorId,nombreLavador, celularLavador));
     }
 
-    public void asignarDatosDelCliente(){
-        var clienteId = new ClienteId();
+    public void asignarDatosDelCliente(ClienteId clienteId){
         appendChange((new DatosDelClienteAsignados(clienteId)));
     }
 
-    public void actualizarDatosLavador(DatosPersonales datosPersonales){
+    public void actualizarDatosLavador(NombreLavador nombreLavador, CelularLavador celularLavador){
         var lavadorId = new LavadorId();
-        Objects.requireNonNull(datosPersonales);
-        appendChange(new DatosPersonalesActualizados(lavadorId, datosPersonales));
+        Objects.requireNonNull(nombreLavador);
+        Objects.requireNonNull(celularLavador);
+        appendChange(new DatosPersonalesActualizados(lavadorId, nombreLavador, celularLavador));
     }
 
-    public void asignarVehiculo(VehiculosLavados vehiculosLavados, VehiculosRecibidos vehiculosRecibidos){
-        var vehiculoId = new VehiculoId();
-        Objects.requireNonNull(vehiculosLavados);
-        Objects.requireNonNull(vehiculosRecibidos);
-        appendChange(new VehiculoAsignado(vehiculoId, vehiculosLavados, vehiculosRecibidos));
+    public void asignarVehiculo(LavadorId lavadorId, VehiculoId vehiculoId, VehiculosLavados vehiculosLavados, VehiculosRecibidos vehiculosRecibidos){
+        Objects.requireNonNull(lavadorId);
+        Objects.requireNonNull(vehiculoId);
+        appendChange(new VehiculoAsignado(lavadorId, vehiculoId, vehiculosLavados, vehiculosRecibidos));
     }
 
     //getters

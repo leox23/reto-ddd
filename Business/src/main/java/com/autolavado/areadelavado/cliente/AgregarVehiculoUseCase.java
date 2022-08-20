@@ -13,5 +13,7 @@ public class AgregarVehiculoUseCase extends UseCase<RequestCommand<AgregarVehicu
                 repository().getEventsBy(command.getVehiculoId().value())
         );
         cliente.agregarVehiculo(command.getTipoDeVehiculo(), command.getColor());
+
+        emit().onResponse(new ResponseEvents(cliente.getUncommittedChanges()));
     }
 }
