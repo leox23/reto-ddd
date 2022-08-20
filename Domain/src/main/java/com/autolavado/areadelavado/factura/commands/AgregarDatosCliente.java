@@ -4,16 +4,23 @@ import co.com.sofka.domain.generic.Command;
 import com.autolavado.areadelavado.cliente.values.Celular;
 import com.autolavado.areadelavado.cliente.values.ClienteId;
 import com.autolavado.areadelavado.cliente.values.Nombre;
+import com.autolavado.areadelavado.factura.values.FacturaId;
 
 public class AgregarDatosCliente extends Command {
+    private final FacturaId facturaId;
     private final ClienteId clienteId;
     private final Nombre nombre;
     private final Celular celular;
 
-    public AgregarDatosCliente(ClienteId clienteId, Nombre nombre, Celular celular) {
+    public AgregarDatosCliente(FacturaId facturaId, ClienteId clienteId, Nombre nombre, Celular celular) {
+        this.facturaId = facturaId;
         this.clienteId = clienteId;
         this.nombre = nombre;
         this.celular = celular;
+    }
+
+    public FacturaId getFacturaId() {
+        return facturaId;
     }
 
     public ClienteId getClienteId() {
