@@ -1,7 +1,6 @@
 package com.autolavado.areadelavado.lavador.commands;
 
 import co.com.sofka.domain.generic.Command;
-//todo ojo, procedencia
 import com.autolavado.areadelavado.cliente.values.ClienteId;
 import com.autolavado.areadelavado.cliente.values.Celular;
 import com.autolavado.areadelavado.cliente.values.Nombre;

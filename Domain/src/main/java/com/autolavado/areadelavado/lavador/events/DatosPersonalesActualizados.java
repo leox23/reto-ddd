@@ -3,7 +3,6 @@ package com.autolavado.areadelavado.lavador.events;
 import co.com.sofka.domain.generic.DomainEvent;
 import com.autolavado.areadelavado.lavador.entities.DatosPersonales;
 import com.autolavado.areadelavado.lavador.values.LavadorId;
-import com.autolavado.areadelavado.lavador.values.NombreLavador;
 
 public class DatosPersonalesActualizados extends DomainEvent {
     private final LavadorId lavadorId;

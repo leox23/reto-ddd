@@ -17,16 +17,11 @@ public class LavadorCreado extends DomainEvent {
         this.celularLavador = celularLavador;
     }
 
-
     public LavadorId getLavadorId() {
         return lavadorId;
     }
 
-    public NombreLavador getNombreLavador() {
-        return nombreLavador;
-    }
+    public NombreLavador getNombreLavador() { return nombreLavador; }
 
-    public CelularLavador getCelularLavador() {
-        return celularLavador;
-    }
+    public CelularLavador getCelularLavador() { return celularLavador; }
 }

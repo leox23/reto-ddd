@@ -55,7 +55,7 @@ public class Cliente extends AggregateEvent<ClienteId> {
         appendChange(new VehiculoAgregado(vehiculoId, tipoDeVehiculo, color));
     }
 
-    public void CrearCliente(DatosPersonales datosPersonales, Vehiculo vehiculo) {
+    public void crearCliente(DatosPersonales datosPersonales, Vehiculo vehiculo) {
         var clienteId = new ClienteId();
         Objects.requireNonNull(datosPersonales);
         Objects.requireNonNull(vehiculo);

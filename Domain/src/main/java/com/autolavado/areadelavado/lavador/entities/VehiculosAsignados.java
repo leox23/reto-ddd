@@ -15,8 +15,6 @@ public class VehiculosAsignados extends Entity<VehiculoId> {
         this.vehiculosRecibidos = vehiculosRecibidos;
     }
 
-
-
     public VehiculosLavados getVehiculosLavados() {
         return vehiculosLavados;
     }

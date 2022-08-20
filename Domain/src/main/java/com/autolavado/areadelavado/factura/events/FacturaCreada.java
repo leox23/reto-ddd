@@ -8,7 +8,6 @@ import com.autolavado.areadelavado.factura.values.Precio;
 
 
 public class FacturaCreada extends DomainEvent {
-
     private final FacturaId facturaId;
     private final Precio precio;
     private final Servicio servicio;

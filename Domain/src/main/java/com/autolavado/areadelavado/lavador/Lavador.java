@@ -55,14 +55,14 @@ public class Lavador extends AggregateEvent<LavadorId> {
         appendChange((new DatosDelClienteAsignados(clienteId)));
     }
 
-    public void actualizarDatosLavador(LavadorId lavadorId, DatosPersonales datosPersonales){
-        Objects.requireNonNull(lavadorId);
+    public void actualizarDatosLavador(DatosPersonales datosPersonales){
+        var lavadorId = new LavadorId();
         Objects.requireNonNull(datosPersonales);
         appendChange(new DatosPersonalesActualizados(lavadorId, datosPersonales));
     }
 
-    public void asignarVehiculo(VehiculoId vehiculoId, VehiculosLavados vehiculosLavados, VehiculosRecibidos vehiculosRecibidos){
-        Objects.requireNonNull(vehiculoId);
+    public void asignarVehiculo(VehiculosLavados vehiculosLavados, VehiculosRecibidos vehiculosRecibidos){
+        var vehiculoId = new VehiculoId();
         Objects.requireNonNull(vehiculosLavados);
         Objects.requireNonNull(vehiculosRecibidos);
         appendChange(new VehiculoAsignado(vehiculoId, vehiculosLavados, vehiculosRecibidos));

@@ -1,7 +1,6 @@
 package com.autolavado.areadelavado.lavador;
 
 import co.com.sofka.domain.generic.EventChange;
-import com.autolavado.areadelavado.cliente.values.ClienteId;
 import com.autolavado.areadelavado.lavador.entities.DatosPersonales;
 import com.autolavado.areadelavado.lavador.entities.VehiculosAsignados;
 import com.autolavado.areadelavado.lavador.events.DatosDelClienteAsignados;

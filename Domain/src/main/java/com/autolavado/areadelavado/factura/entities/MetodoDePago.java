@@ -12,7 +12,6 @@ public class MetodoDePago extends Entity<ClienteId> {
     private Tipo metodoDePago;
     private Anticipo anticipo;
 
-
     public MetodoDePago(ClienteId clienteId, Tipo metodoDePago, Anticipo anticipo) {
         super(clienteId);
         this.clienteId = clienteId;
