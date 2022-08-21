@@ -1,18 +1,18 @@
-package com.autolavado.areadelavado.factura.values;
+package com.autolavado.generic.values;
 
 import co.com.sofka.domain.generic.ValueObject;
 
 import java.util.Objects;
 
-public class Anticipo implements ValueObject<Integer> {
-    private final Integer value;
+public class Nombre implements ValueObject<String> {
+    private final String value;
 
-    public Anticipo(Integer value) {
+    public Nombre(String value) {
         this.value = Objects.requireNonNull(value);
     }
 
     @Override
-    public Integer value() {
+    public String value() {
         return this.value;
     }
 
@@ -20,8 +20,8 @@ public class Anticipo implements ValueObject<Integer> {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Anticipo anticipo = (Anticipo) o;
-        return Objects.equals(value, anticipo.value);
+        Nombre nombre = (Nombre) o;
+        return Objects.equals(value, nombre.value);
     }
 
     @Override

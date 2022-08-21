@@ -1,9 +1,9 @@
 package com.autolavado.areadelavado.cliente.commands;
 
 import co.com.sofka.domain.generic.Command;
-import com.autolavado.areadelavado.cliente.values.Celular;
+import com.autolavado.generic.values.Celular;
 import com.autolavado.areadelavado.cliente.values.ClienteId;
-import com.autolavado.areadelavado.cliente.values.Nombre;
+import com.autolavado.generic.values.Nombre;
 
 public class ActualizarDatosCliente extends Command {
     private final ClienteId clienteId;

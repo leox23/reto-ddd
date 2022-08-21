@@ -9,8 +9,8 @@ public class AgregarAnticipoUseCase extends UseCase<RequestCommand<AgregarAntici
     @Override
     public void executeUseCase(RequestCommand<AgregarAnticipo> agregarAnticipoRequestCommand) {
         var command = agregarAnticipoRequestCommand.getCommand();
-        var factura = Factura.from(command.getFacturaId(), repository().getEventsBy(command.getFacturaId().value()));
-        factura.agregarAnticipo(command.getTipo(), command.getAnticipo());
+        var factura = Factura.from(command.getFacturaId(), retrieveEvents(command.getFacturaId().value()));
+        factura.agregarAnticipo(command.getFacturaId(), command.getTipo(), command.getAnticipo());
 
         emit().onResponse(new ResponseEvents(factura.getUncommittedChanges()));
     }

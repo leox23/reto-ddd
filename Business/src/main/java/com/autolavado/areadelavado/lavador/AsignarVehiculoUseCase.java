@@ -12,7 +12,6 @@ public class AsignarVehiculoUseCase extends UseCase<RequestCommand<AsignarVehicu
         var lavador = Lavador.from(command.getLavadorId(),
                 repository().getEventsBy(command.getLavadorId().value()));
         lavador.asignarVehiculo(command.getLavadorId(), command.getVehiculoId(), command.getVehiculosLavados(), command.getVehiculosRecibidos());
-
         emit().onResponse(new ResponseEvents(lavador.getUncommittedChanges()));
     }
 

@@ -2,9 +2,9 @@ package com.autolavado.areadelavado.lavador;
 
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
-import com.autolavado.areadelavado.cliente.values.ClienteId;
-import com.autolavado.areadelavado.cliente.values.VehiculoId;
-import com.autolavado.areadelavado.lavador.entities.VehiculosAsignados;
+import com.autolavado.areadelavado.lavador.values.ClienteId;
+import com.autolavado.areadelavado.lavador.commands.AsignarDatosDelCliente;
+import com.autolavado.areadelavado.lavador.entities.Vehiculos;
 import com.autolavado.areadelavado.lavador.events.DatosDelClienteAsignados;
 import com.autolavado.areadelavado.lavador.events.DatosPersonalesActualizados;
 import com.autolavado.areadelavado.lavador.events.LavadorCreado;
@@ -13,17 +13,22 @@ import com.autolavado.areadelavado.lavador.values.CelularLavador;
 import com.autolavado.areadelavado.lavador.values.LavadorId;
 import com.autolavado.areadelavado.lavador.entities.DatosPersonales;
 import com.autolavado.areadelavado.lavador.values.NombreLavador;
+import com.autolavado.areadelavado.lavador.values.VehiculoId;
 import com.autolavado.areadelavado.lavador.values.VehiculosLavados;
 import com.autolavado.areadelavado.lavador.values.VehiculosRecibidos;
+import com.autolavado.generic.values.Celular;
+import com.autolavado.generic.values.Nombre;
 
+import java.io.ObjectInputStream;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 
 public class Lavador extends AggregateEvent<LavadorId> {
+    public AsignarDatosDelCliente asignarDatosDelCliente;
     protected Set<DatosPersonales> datosPersonales;
-    protected Set<VehiculosAsignados> vehiculosAsignados;
+    protected Set<Vehiculos> vehiculos;
 
     public Lavador(LavadorId lavadorId, NombreLavador nombreLavador, CelularLavador celularLavador) {
         super(lavadorId);
@@ -42,8 +47,8 @@ public class Lavador extends AggregateEvent<LavadorId> {
     }
 
     // Comportamientos
-    public void asignarDatosDelCliente(ClienteId clienteId){
-        appendChange((new DatosDelClienteAsignados(clienteId)));
+    public void asignarDatosDelCliente(LavadorId lavadorId, ClienteId clienteId, Nombre nombre, Celular celular){
+        appendChange((new DatosDelClienteAsignados(lavadorId, clienteId, nombre, celular)));
     }
 
     public void actualizarDatosLavador(LavadorId lavadorId, NombreLavador nombreLavador, CelularLavador celularLavador){
@@ -67,8 +72,8 @@ public class Lavador extends AggregateEvent<LavadorId> {
                 .findFirst();
     }
 
-    protected Optional<VehiculosAsignados> getVehiculosAsignados(LavadorId lavadorId){
-        return vehiculosAsignados
+    protected Optional<Vehiculos> getVehiculosAsignados(LavadorId lavadorId){
+        return vehiculos
                 .stream()
                 .filter(cliente -> cliente.identity().equals(lavadorId))
                 .findFirst();

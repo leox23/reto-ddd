@@ -1,10 +1,10 @@
 package com.autolavado.areadelavado.lavador.commands;
 
 import co.com.sofka.domain.generic.Command;
-import com.autolavado.areadelavado.lavador.values.Celular;
 import com.autolavado.areadelavado.lavador.values.ClienteId;
 import com.autolavado.areadelavado.lavador.values.LavadorId;
-import com.autolavado.areadelavado.lavador.values.Nombre;
+import com.autolavado.generic.values.Celular;
+import com.autolavado.generic.values.Nombre;
 
 public class AsignarDatosDelCliente extends Command {
     private final LavadorId lavadorId;

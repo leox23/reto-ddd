@@ -2,7 +2,6 @@ package com.autolavado.areadelavado.factura;
 
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.support.RequestCommand;
-import co.com.sofka.domain.generic.DomainEvent;
 import com.autolavado.areadelavado.factura.commands.CrearFactura;
 import com.autolavado.areadelavado.factura.entities.MetodoDePago;
 import com.autolavado.areadelavado.factura.entities.Servicio;
@@ -18,10 +17,6 @@ import com.autolavado.areadelavado.factura.values.TipoDeServicioId;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class CrearFacturaUseCaseTest {
     private  CrearFacturaUseCase useCase;
@@ -42,8 +37,8 @@ class CrearFacturaUseCaseTest {
 
         ClienteId clienteId = new ClienteId("fakeClienteID");
         Tipo tipo = new Tipo("efectivo");
-        Anticipo anticipo = new Anticipo("1000");
-        MetodoDePago metodoDePago = new MetodoDePago(clienteId, tipo, anticipo);
+        Anticipo anticipo = new Anticipo(1000);
+        MetodoDePago metodoDePago = new MetodoDePago(facturaId, tipo, anticipo);
 
         var command = new CrearFactura(facturaId, precio, servicio, metodoDePago);
 

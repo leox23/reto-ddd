@@ -1,6 +1,7 @@
 package com.autolavado.areadelavado.factura;
 
 import co.com.sofka.domain.generic.EventChange;
+import com.autolavado.areadelavado.factura.commands.AgregarAnticipo;
 import com.autolavado.areadelavado.factura.entities.MetodoDePago;
 import com.autolavado.areadelavado.factura.entities.Servicio;
 import com.autolavado.areadelavado.factura.events.AnticipoAgregado;
@@ -19,7 +20,7 @@ public class FacturaChange extends EventChange {
             factura.metodoDePago = (Set<MetodoDePago>) event.getMetodoDePago();
         });
         apply((AnticipoAgregado event) -> {
-           factura.agregarAnticipo(event.getTipo(), event.getAnticipo());
+            factura.agregarAnticipo = new AgregarAnticipo(event.getFacturaId(), event.getTipo(), event.getAnticipo());
         });
         apply((DatosClienteAgregado event) -> {
             factura.agregarDatosCliente(event.getNombre(), event.getCelular());

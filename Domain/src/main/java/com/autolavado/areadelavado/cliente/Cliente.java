@@ -7,10 +7,10 @@ import com.autolavado.areadelavado.cliente.entities.Vehiculo;
 import com.autolavado.areadelavado.cliente.events.ClienteCreado;
 import com.autolavado.areadelavado.cliente.events.DatosClienteActualizados;
 import com.autolavado.areadelavado.cliente.events.VehiculoAgregado;
-import com.autolavado.areadelavado.cliente.values.Celular;
+import com.autolavado.generic.values.Celular;
 import com.autolavado.areadelavado.cliente.values.ClienteId;
 import com.autolavado.areadelavado.cliente.values.Color;
-import com.autolavado.areadelavado.cliente.values.Nombre;
+import com.autolavado.generic.values.Nombre;
 import com.autolavado.areadelavado.cliente.values.TipoDeVehiculo;
 import com.autolavado.areadelavado.cliente.values.VehiculoId;
 

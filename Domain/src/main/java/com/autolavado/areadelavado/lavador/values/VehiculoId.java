@@ -1,4 +1,4 @@
-package com.autolavado.areadelavado.cliente.values;
+package com.autolavado.areadelavado.lavador.values;
 
 import co.com.sofka.domain.generic.Identity;
 

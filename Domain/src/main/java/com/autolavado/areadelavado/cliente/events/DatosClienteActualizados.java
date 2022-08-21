@@ -1,10 +1,9 @@
 package com.autolavado.areadelavado.cliente.events;
 
 import co.com.sofka.domain.generic.DomainEvent;
-import com.autolavado.areadelavado.cliente.values.Celular;
+import com.autolavado.generic.values.Celular;
 import com.autolavado.areadelavado.cliente.values.ClienteId;
-import com.autolavado.areadelavado.cliente.values.Nombre;
-import jdk.jfr.Event;
+import com.autolavado.generic.values.Nombre;
 
 public class DatosClienteActualizados extends DomainEvent {
     private final ClienteId clienteId;

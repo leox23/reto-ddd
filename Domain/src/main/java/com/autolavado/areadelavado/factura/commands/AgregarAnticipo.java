@@ -5,14 +5,16 @@ import com.autolavado.areadelavado.factura.values.Anticipo;
 import com.autolavado.areadelavado.factura.values.FacturaId;
 import com.autolavado.areadelavado.factura.values.Tipo;
 
+import java.util.List;
+
 public class AgregarAnticipo extends Command {
     private final FacturaId facturaId;
     private final Tipo tipo;
     private final Anticipo anticipo;
 
-    public AgregarAnticipo(FacturaId facturaId, Tipo metodoDePago, Anticipo anticipo) {
+    public AgregarAnticipo(FacturaId facturaId, Tipo tipo, Anticipo anticipo) {
         this.facturaId = facturaId;
-        this.tipo = metodoDePago;
+        this.tipo = tipo;
         this.anticipo = anticipo;
     }
 
@@ -27,4 +29,5 @@ public class AgregarAnticipo extends Command {
     public Anticipo getAnticipo() {
         return anticipo;
     }
+
 }

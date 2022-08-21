@@ -6,11 +6,11 @@ import java.awt.*;
 import java.util.Objects;
 
 public class VehiculosLavados implements ValueObject<VehiculosLavados.Props> {
-    private final List detalleVehiculo;
+    private final List detalleVehiculos;
     private final Boolean todoCompletado;
 
     public VehiculosLavados(List detalleVehiculo, Boolean todoCompletado ) {
-        this.detalleVehiculo = Objects.requireNonNull(detalleVehiculo);
+        this.detalleVehiculos = Objects.requireNonNull(detalleVehiculo);
         this.todoCompletado = Objects.requireNonNull(todoCompletado);
     }
 
