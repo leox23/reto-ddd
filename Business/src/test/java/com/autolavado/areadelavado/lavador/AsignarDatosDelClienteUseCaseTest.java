@@ -35,7 +35,7 @@ class AsignarDatosDelClienteUseCaseTest {
     }
 
     @Test
-    public void AsignarDatosDelClienteUseCaseTestPass() {
+    public void asignarDatosDelClienteUseCaseTestPass() {
         //arrange
         LavadorId lavadorId = new LavadorId("1");
         ClienteId clienteId = new ClienteId("20");

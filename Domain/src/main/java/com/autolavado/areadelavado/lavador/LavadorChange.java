@@ -11,7 +11,9 @@ import com.autolavado.areadelavado.lavador.events.VehiculoAsignado;
 public class LavadorChange extends EventChange {
     public LavadorChange(Lavador lavador) {
         apply((LavadorCreado event) ->{
-            lavador.datosPersonales.add(new DatosPersonales(event.getLavadorId(), event.getNombreLavador(), event.getCelularLavador()));
+            lavador.lavadorId = event.getLavadorId();
+            lavador.nombreLavador = event.getNombreLavador();
+            lavador.celularLavador = event.getCelularLavador();
         });
         apply((VehiculoAsignado event) ->{
             lavador.vehiculos.add( new Vehiculos(event.getLavadorId(), event.getVehiculoId(), event.getVehiculosLavados(), event.getVehiculosRecibidos()));

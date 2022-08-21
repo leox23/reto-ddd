@@ -36,7 +36,7 @@ class AsignarVehiculoUseCaseTest {
     }
 
     @Test
-    public void AsignarVehiculoUseCaseTestPass() {
+    public void asignarVehiculoUseCaseTestPass() {
         //arrange
         List detalleVehiculos = new List();
         detalleVehiculos.add("nissan");detalleVehiculos.add("toyota");

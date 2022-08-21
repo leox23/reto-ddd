@@ -11,7 +11,7 @@ public class ActualizarDatosClienteUseCase extends UseCase<RequestCommand<Actual
         var command = actualizarDatosClienteRequestCommand.getCommand();
         var cliente = Cliente.from(
                 command.getClienteId(),
-                repository().getEventsBy(command.getClienteId().value())
+                retrieveEvents(command.getClienteId().value())
         );
         cliente.actualizarDatosCliente(command.getNombre(), command.getCelular());
 

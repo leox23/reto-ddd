@@ -48,8 +48,7 @@ class CrearClienteUseCaseTest {
         var clienteCreado = (ClienteCreado) events.get(0);
 
         Assertions.assertEquals("fakeClienteID", clienteCreado.aggregateRootId());
-        Assertions.assertEquals(datosPersonales, clienteCreado.getDatosPersonales());
-        Assertions.assertEquals(vehiculo, clienteCreado.getVehiculo());
+
 
 
     }

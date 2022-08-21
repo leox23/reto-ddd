@@ -1,7 +1,6 @@
 package com.autolavado.areadelavado.factura.entities;
 
 import co.com.sofka.domain.generic.Entity;
-import com.autolavado.areadelavado.factura.values.ClienteId;
 import com.autolavado.areadelavado.factura.values.Anticipo;
 import com.autolavado.areadelavado.factura.values.FacturaId;
 import com.autolavado.areadelavado.factura.values.Tipo;

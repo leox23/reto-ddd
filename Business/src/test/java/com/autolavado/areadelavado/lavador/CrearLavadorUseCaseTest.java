@@ -20,7 +20,7 @@ class CrearLavadorUseCaseTest {
     public void setup() { useCase = new CrearLavadorUseCase();}
 
     @Test
-    public void CrearLavadorCaseUseTest() {
+    public void crearLavadorCaseUseTest() {
         ///arrange
         LavadorId lavadorId = new LavadorId("fakeLavadorID");
 

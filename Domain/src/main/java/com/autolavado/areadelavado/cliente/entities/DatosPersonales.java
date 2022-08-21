@@ -18,10 +18,6 @@ public class DatosPersonales extends Entity<ClienteId> {
         this.celular = celular;
     }
 
-    public DatosPersonales(DatosPersonales datosPersonales, Vehiculo vehiculo) {
-        super(new ClienteId());
-    }
-
     public Nombre getNombre() {
         return nombre;
     }

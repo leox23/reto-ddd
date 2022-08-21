@@ -2,6 +2,7 @@ package com.autolavado.areadelavado.cliente;
 
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
+import com.autolavado.areadelavado.cliente.commands.ActualizarDatosCliente;
 import com.autolavado.areadelavado.cliente.entities.DatosPersonales;
 import com.autolavado.areadelavado.cliente.entities.Vehiculo;
 import com.autolavado.areadelavado.cliente.events.ClienteCreado;
@@ -14,26 +15,22 @@ import com.autolavado.generic.values.Nombre;
 import com.autolavado.areadelavado.cliente.values.TipoDeVehiculo;
 import com.autolavado.areadelavado.cliente.values.VehiculoId;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 
 public class Cliente extends AggregateEvent<ClienteId> {
-
-    protected Set<DatosPersonales> datosPersonales;
-    protected Set<Vehiculo> vehiculo;
-
-    public Cliente(ClienteId clienteId, DatosPersonales datosPersonales, Vehiculo vehiculo) {
-        super(clienteId);
-        appendChange(new ClienteCreado(clienteId, datosPersonales, vehiculo)).apply();
-    }
+    protected ClienteId clienteId;
+    protected Set<DatosPersonales> datosPersonales = new HashSet<>();;
+    protected Set<Vehiculo> vehiculo = new HashSet<>();;
 
     public Cliente(ClienteId clienteId) {
         super(clienteId);
+        appendChange(new ClienteCreado(clienteId)).apply();
         subscribe(new ClienteChange(this));
     }
-
 
     public static Cliente from(ClienteId clienteId, List<DomainEvent> events){
         var cliente= new Cliente(clienteId);
@@ -60,11 +57,11 @@ public class Cliente extends AggregateEvent<ClienteId> {
         var clienteId = new ClienteId();
         Objects.requireNonNull(datosPersonales);
         Objects.requireNonNull(vehiculo);
-        appendChange(new ClienteCreado(clienteId, datosPersonales, vehiculo));
+        appendChange(new ClienteCreado(clienteId));
     }
 
     //getters
-    protected Optional<DatosPersonales> getClientePorId(ClienteId clienteId){
+    protected Optional<DatosPersonales> getDatosPersonalesPorId(ClienteId clienteId){
         return datosPersonales
                 .stream()
                 .filter(cliente -> cliente.identity().equals(clienteId))

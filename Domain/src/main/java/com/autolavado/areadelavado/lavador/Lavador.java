@@ -26,7 +26,9 @@ import java.util.Optional;
 import java.util.Set;
 
 public class Lavador extends AggregateEvent<LavadorId> {
-    public AsignarDatosDelCliente asignarDatosDelCliente;
+    protected LavadorId lavadorId;
+    protected NombreLavador nombreLavador;
+    protected CelularLavador celularLavador;
     protected Set<DatosPersonales> datosPersonales;
     protected Set<Vehiculos> vehiculos;
 

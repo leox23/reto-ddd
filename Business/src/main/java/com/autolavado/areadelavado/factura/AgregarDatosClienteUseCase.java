@@ -9,8 +9,8 @@ public class AgregarDatosClienteUseCase extends UseCase<RequestCommand<AgregarDa
     @Override
     public void executeUseCase(RequestCommand<AgregarDatosCliente> agregarDatosClienteRequestCommand) {
         var command = agregarDatosClienteRequestCommand.getCommand();
-        var factura = Factura.from(command.getFacturaId(), repository().getEventsBy(command.getFacturaId().value()));
-        factura.agregarDatosCliente(command.getNombre(), command.getCelular());
+        var factura = Factura.from(command.getFacturaId(), retrieveEvents(command.getFacturaId().value()));
+        factura.agregarDatosCliente(command.getFacturaId(), command.getClienteId(), command.getNombre(), command.getCelular());
 
         emit().onResponse(new ResponseEvents(factura.getUncommittedChanges()));
     }

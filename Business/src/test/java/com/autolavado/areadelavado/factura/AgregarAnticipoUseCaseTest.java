@@ -34,7 +34,7 @@ class AgregarAnticipoUseCaseTest {
     }
 
     @Test
-    public void AgregarAnticipoUseCaseTestPass() {
+    public void agregarAnticipoUseCaseTestPass() {
         //arrange
         FacturaId facturaId = new FacturaId("1");
 

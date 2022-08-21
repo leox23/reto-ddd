@@ -2,8 +2,9 @@ package com.autolavado.areadelavado.factura;
 
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
+import com.autolavado.areadelavado.factura.commands.AgregarDatosCliente;
 import com.autolavado.generic.values.Celular;
-import com.autolavado.areadelavado.cliente.values.ClienteId;
+import com.autolavado.areadelavado.factura.values.ClienteId;
 import com.autolavado.generic.values.Nombre;
 import com.autolavado.areadelavado.factura.commands.AgregarAnticipo;
 import com.autolavado.areadelavado.factura.entities.MetodoDePago;
@@ -26,6 +27,7 @@ import java.util.Set;
 
 public class Factura extends AggregateEvent<FacturaId> {
 
+    protected AgregarDatosCliente agregarDatosCliente;
     protected AgregarAnticipo agregarAnticipo;
     protected Precio precio;
     protected Set<Servicio> servicio;
@@ -55,11 +57,12 @@ public class Factura extends AggregateEvent<FacturaId> {
         appendChange(new AnticipoAgregado(facturaId, tipo, anticipo)).apply();
     }
 
-    public void agregarDatosCliente(Nombre nombre, Celular celular){
-        var clienteId = new ClienteId();
+    public void agregarDatosCliente(FacturaId facturaId, ClienteId clienteId, Nombre nombre, Celular celular){
+        Objects.requireNonNull(facturaId);
+        Objects.requireNonNull(clienteId);
         Objects.requireNonNull(nombre);
         Objects.requireNonNull(celular);
-        appendChange(new DatosClienteAgregado(clienteId, nombre, celular)).apply();
+        appendChange(new DatosClienteAgregado(facturaId, clienteId, nombre, celular)).apply();
     }
 
     public void agregarMetodoDePago(Tipo tipo, Anticipo anticipo) {

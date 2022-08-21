@@ -7,26 +7,14 @@ import com.autolavado.areadelavado.cliente.values.ClienteId;
 
 public class ClienteCreado extends DomainEvent {
     private final ClienteId clienteId;
-    private final DatosPersonales datosPersonales;
-    private final Vehiculo vehiculo;
 
-    public ClienteCreado(ClienteId clienteId, DatosPersonales datosPersonales, Vehiculo vehiculo) {
+    public ClienteCreado(ClienteId clienteId) {
         super("com.autolavado.areadelavado.ClienteCreado");
         this.clienteId = clienteId;
-        this.datosPersonales = datosPersonales;
-        this.vehiculo = vehiculo;
     }
 
     public ClienteId getClienteId() {
         return clienteId;
-    }
-
-    public DatosPersonales getDatosPersonales() {
-        return datosPersonales;
-    }
-
-    public Vehiculo getVehiculo() {
-        return vehiculo;
     }
 
 }

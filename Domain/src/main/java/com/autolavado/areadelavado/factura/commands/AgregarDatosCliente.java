@@ -2,7 +2,7 @@ package com.autolavado.areadelavado.factura.commands;
 
 import co.com.sofka.domain.generic.Command;
 import com.autolavado.generic.values.Celular;
-import com.autolavado.areadelavado.cliente.values.ClienteId;
+import com.autolavado.areadelavado.factura.values.ClienteId;
 import com.autolavado.generic.values.Nombre;
 import com.autolavado.areadelavado.factura.values.FacturaId;
 
@@ -18,6 +18,7 @@ public class AgregarDatosCliente extends Command {
         this.nombre = nombre;
         this.celular = celular;
     }
+
 
     public FacturaId getFacturaId() {
         return facturaId;

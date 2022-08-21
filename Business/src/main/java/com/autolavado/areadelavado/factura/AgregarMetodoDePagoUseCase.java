@@ -9,7 +9,7 @@ public class AgregarMetodoDePagoUseCase extends UseCase<RequestCommand<AgregarMe
     @Override
     public void executeUseCase(RequestCommand<AgregarMetodoDePago> agregarMetodoDePagoRequestCommand) {
         var command = agregarMetodoDePagoRequestCommand.getCommand();
-        var factura = Factura.from(command.getFacturaId(), repository().getEventsBy(command.getFacturaId().value()));
+        var factura = Factura.from(command.getFacturaId(), retrieveEvents(command.getFacturaId().value()));
         factura.agregarMetodoDePago(command.getTipo(), command.getAnticipo());
 
         emit().onResponse(new ResponseEvents(factura.getUncommittedChanges()));
