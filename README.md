@@ -18,7 +18,7 @@ El link de diagrama es : https://app.diagrams.net/#G1MvOrK2uPYhvpwNQhmH2SwFlI6y4
 
 <hr>
 
-![modelamiento](./Modelamiento.png)
+![modelamiento](./modelamiento.png)
 
 <hr>
 
