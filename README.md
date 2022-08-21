@@ -16,5 +16,15 @@ El link de diagrama es : https://app.diagrams.net/#G1MvOrK2uPYhvpwNQhmH2SwFlI6y4
 
 
 
+![Eventos](./Diagrama DDD Autolavado-Analisis.drawio.png)
+
+<hr>
+
+![Eventos](./Diagrama DDD Autolavado-Modelamiento.drawio.png)
+
+<hr>
+
+![Eventos](./Diagrama DDD Autolavado-Eventos de Dominio.drawio.png)
+
 
 
