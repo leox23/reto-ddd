@@ -29,7 +29,7 @@ public class Factura extends AggregateEvent<FacturaId> {
     protected Set<Servicio> servicio;
     protected Set<MetodoDePago> metodoDePago;
 
-    public Factura(FacturaId facturaId, Servicio servicio, MetodoDePago metodoDePago) {
+    public Factura(FacturaId facturaId, Precio precio, Servicio servicio, MetodoDePago metodoDePago) {
         super(facturaId);
         appendChange(new FacturaCreada(facturaId, precio, servicio, metodoDePago)).apply();
     }
@@ -46,13 +46,6 @@ public class Factura extends AggregateEvent<FacturaId> {
     }
 
     //comportamientos
-    public void crearFactura(Servicio servicio, MetodoDePago metodoDePago) {
-        var facturaId = new FacturaId();
-        Objects.requireNonNull(servicio);
-        Objects.requireNonNull(metodoDePago);
-        appendChange(new FacturaCreada(facturaId, precio, servicio, metodoDePago)).apply();
-    }
-
     public void agregarAnticipo(Tipo tipo, Anticipo anticipo) {
         Objects.requireNonNull(tipo);
         Objects.requireNonNull(anticipo);

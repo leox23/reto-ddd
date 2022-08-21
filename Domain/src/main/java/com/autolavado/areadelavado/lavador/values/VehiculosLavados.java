@@ -2,27 +2,28 @@ package com.autolavado.areadelavado.lavador.values;
 
 import co.com.sofka.domain.generic.ValueObject;
 
+import java.awt.*;
 import java.util.Objects;
 
 public class VehiculosLavados implements ValueObject<VehiculosLavados.Props> {
-    private final String detalleVehiculo;
-    private final String novedad;
+    private final List detalleVehiculo;
+    private final Boolean todoCompletado;
 
-    public VehiculosLavados(String detalleVehiculo, String novedad) {
+    public VehiculosLavados(List detalleVehiculo, Boolean todoCompletado ) {
         this.detalleVehiculo = Objects.requireNonNull(detalleVehiculo);
-        this.novedad = Objects.requireNonNull(novedad);
+        this.todoCompletado = Objects.requireNonNull(todoCompletado);
     }
 
     @Override
     public Props value() {
         return new Props() {
             @Override
-            public String detalleVehiculo() {
+            public List detalleVehiculo() {
                 return null;
             }
 
             @Override
-            public String novedad() {
+            public Boolean todoCompletado() {
                 return null;
             }
         };
@@ -30,7 +31,7 @@ public class VehiculosLavados implements ValueObject<VehiculosLavados.Props> {
 
 
     public interface Props {
-        String detalleVehiculo();
-        String novedad();
+        List detalleVehiculo();
+        Boolean todoCompletado();
     }
 }

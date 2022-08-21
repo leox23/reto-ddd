@@ -9,9 +9,7 @@ public class CrearLavadorUseCase extends UseCase<RequestCommand<CrearLavador>, R
     @Override
     public void executeUseCase(RequestCommand<CrearLavador> crearLavadorRequestCommand) {
         var command = crearLavadorRequestCommand.getCommand();
-        var lavador = Lavador.from(command.getLavadorId(),
-                repository().getEventsBy(command.getLavadorId().value()));
-        lavador.crearLavador(command.getNombreLavador(), command.getCelularLavador());
+        var lavador = new Lavador(command.getLavadorId(), command.getNombreLavador(), command.getCelularLavador());
 
         emit().onResponse(new ResponseEvents(lavador.getUncommittedChanges()));
     }

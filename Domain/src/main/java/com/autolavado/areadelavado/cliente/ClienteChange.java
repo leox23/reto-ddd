@@ -2,14 +2,18 @@ package com.autolavado.areadelavado.cliente;
 
 import co.com.sofka.domain.generic.EventChange;
 import com.autolavado.areadelavado.cliente.entities.DatosPersonales;
+import com.autolavado.areadelavado.cliente.entities.Vehiculo;
 import com.autolavado.areadelavado.cliente.events.ClienteCreado;
 import com.autolavado.areadelavado.cliente.events.DatosClienteActualizados;
 import com.autolavado.areadelavado.cliente.events.VehiculoAgregado;
 
+import java.util.Set;
+
 public class ClienteChange extends EventChange {
     public ClienteChange(Cliente cliente) {
         apply((ClienteCreado event) ->{
-            cliente.datosPersonales.add(new DatosPersonales(event.getDatosPersonales(), event.getVehiculo()));
+            cliente.datosPersonales = (Set<DatosPersonales>) event.getDatosPersonales();
+            cliente.vehiculo = (Set<Vehiculo>) event.getVehiculo();
         });
         apply((DatosClienteActualizados event) -> {
             var actualizar = cliente.getClientePorId(event.getClienteId())

@@ -42,19 +42,12 @@ public class Lavador extends AggregateEvent<LavadorId> {
     }
 
     // Comportamientos
-    public void crearLavador(NombreLavador nombreLavador, CelularLavador celularLavador){
-        var lavadorId = new LavadorId();
-        Objects.requireNonNull(nombreLavador);
-        Objects.requireNonNull(celularLavador);
-        appendChange(new LavadorCreado(lavadorId,nombreLavador, celularLavador));
-    }
-
     public void asignarDatosDelCliente(ClienteId clienteId){
         appendChange((new DatosDelClienteAsignados(clienteId)));
     }
 
-    public void actualizarDatosLavador(NombreLavador nombreLavador, CelularLavador celularLavador){
-        var lavadorId = new LavadorId();
+    public void actualizarDatosLavador(LavadorId lavadorId, NombreLavador nombreLavador, CelularLavador celularLavador){
+        Objects.requireNonNull(lavadorId);
         Objects.requireNonNull(nombreLavador);
         Objects.requireNonNull(celularLavador);
         appendChange(new DatosPersonalesActualizados(lavadorId, nombreLavador, celularLavador));

@@ -3,11 +3,14 @@ package com.autolavado.areadelavado.cliente.values;
 import co.com.sofka.domain.generic.Identity;
 
 public class ClienteId extends Identity {
-    public ClienteId(ClienteId valor) { super(String.valueOf(valor));}
 
-    public ClienteId () {};
+    public ClienteId() {
+    }
+    public ClienteId(String id) {
+        super(id);
+    }
+    public static ClienteId of(String id) {
 
-    public static ClienteId of(String valor) {
-        return new ClienteId();
+        return new ClienteId(id);
     }
 }

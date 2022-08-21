@@ -8,14 +8,19 @@ import com.autolavado.areadelavado.cliente.values.VehiculoId;
 import java.util.Objects;
 
 public class Vehiculo extends Entity<VehiculoId> {
-
+    private VehiculoId vehiculoId;
     private TipoDeVehiculo tipoDeVehiculo;
     private Color color;
 
     public Vehiculo(VehiculoId vehiculoId, TipoDeVehiculo tipoDeVehiculo, Color color) {
         super(vehiculoId);
+        this.vehiculoId = vehiculoId;
         this.tipoDeVehiculo = tipoDeVehiculo;
         this.color = color;
+    }
+
+    public VehiculoId getVehiculoId() {
+        return vehiculoId;
     }
 
     public TipoDeVehiculo getTipoDeVehiculo() {

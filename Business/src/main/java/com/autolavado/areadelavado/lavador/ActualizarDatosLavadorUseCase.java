@@ -11,7 +11,7 @@ public class ActualizarDatosLavadorUseCase extends UseCase<RequestCommand<Actual
         var command = actualizarDatosLavadorRequestCommand.getCommand();
         var lavador = Lavador.from(command.getLavadorId(),
                 repository().getEventsBy(command.getLavadorId().value()));
-        lavador.actualizarDatosLavador(command.getNombreLavador(), command.getCelularLavador());
+        lavador.actualizarDatosLavador(command.getLavadorId(), command.getNombreLavador(), command.getCelularLavador());
 
         emit().onResponse(new ResponseEvents(lavador.getUncommittedChanges()));
     }

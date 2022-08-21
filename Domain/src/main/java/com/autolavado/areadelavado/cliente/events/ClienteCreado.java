@@ -17,6 +17,10 @@ public class ClienteCreado extends DomainEvent {
         this.vehiculo = vehiculo;
     }
 
+    public ClienteId getClienteId() {
+        return clienteId;
+    }
+
     public DatosPersonales getDatosPersonales() {
         return datosPersonales;
     }

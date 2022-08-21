@@ -24,15 +24,16 @@ public class Cliente extends AggregateEvent<ClienteId> {
     protected Set<DatosPersonales> datosPersonales;
     protected Set<Vehiculo> vehiculo;
 
-    public Cliente(ClienteId clienteId, DatosPersonales datosPersonales, Vehiculo bono) {
+    public Cliente(ClienteId clienteId, DatosPersonales datosPersonales, Vehiculo vehiculo) {
         super(clienteId);
-        appendChange(new ClienteCreado(clienteId, datosPersonales, bono)).apply();
+        appendChange(new ClienteCreado(clienteId, datosPersonales, vehiculo)).apply();
     }
 
     public Cliente(ClienteId clienteId) {
         super(clienteId);
         subscribe(new ClienteChange(this));
     }
+
 
     public static Cliente from(ClienteId clienteId, List<DomainEvent> events){
         var cliente= new Cliente(clienteId);

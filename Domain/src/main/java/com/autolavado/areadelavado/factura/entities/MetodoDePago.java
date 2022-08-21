@@ -1,7 +1,7 @@
 package com.autolavado.areadelavado.factura.entities;
 
 import co.com.sofka.domain.generic.Entity;
-import com.autolavado.areadelavado.cliente.values.ClienteId;
+import com.autolavado.areadelavado.factura.values.ClienteId;
 import com.autolavado.areadelavado.factura.values.Anticipo;
 import com.autolavado.areadelavado.factura.values.Tipo;
 
@@ -9,13 +9,13 @@ import java.util.Objects;
 
 public class MetodoDePago extends Entity<ClienteId> {
     private ClienteId clienteId;
-    private Tipo metodoDePago;
+    private Tipo tipo;
     private Anticipo anticipo;
 
-    public MetodoDePago(ClienteId clienteId, Tipo metodoDePago, Anticipo anticipo) {
+    public MetodoDePago(ClienteId clienteId, Tipo tipo, Anticipo anticipo) {
         super(clienteId);
         this.clienteId = clienteId;
-        this.metodoDePago = metodoDePago;
+        this.tipo = tipo;
         this.anticipo = anticipo;
     }
 
@@ -27,8 +27,8 @@ public class MetodoDePago extends Entity<ClienteId> {
         return clienteId;
     }
 
-    public Tipo getMetodoDePago() {
-        return metodoDePago;
+    public Tipo getTipo() {
+        return tipo;
     }
 
     public Anticipo getAnticipo() {
