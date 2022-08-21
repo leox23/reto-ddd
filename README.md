@@ -14,17 +14,12 @@ La carpeta de **Business** contiene todos los casos de uso y los test.
 
 El link de diagrama es : https://app.diagrams.net/#G1MvOrK2uPYhvpwNQhmH2SwFlI6y4zzjw2
 
-
-
-![Eventos](./Diagrama DDD Autolavado-Analisis.drawio.png)
+![analisis](./analisis.png)
 
 <hr>
 
-![Eventos](./Diagrama DDD Autolavado-Modelamiento.drawio.png)
+![modelamiento](./Modelamiento.png)
 
 <hr>
 
-![Eventos](./Diagrama DDD Autolavado-Eventos de Dominio.drawio.png)
-
-
-
+![eventosDom](./eventos.png)
